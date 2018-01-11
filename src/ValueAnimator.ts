@@ -20,7 +20,9 @@ export class ValueAnimator {
     public loops: number = 1
     public fillRule: number = 0
 
+    public onStart: () => void = () => { }
     public onUpdate: (currentValue: number) => void = () => { }
+    public onEnd: () => void = () => { }
 
     public start(currentValue: number | undefined = undefined) {
         this.doStart(false, currentValue)
@@ -56,6 +58,7 @@ export class ValueAnimator {
             }
         }
         this.mCurrentFrication = 0.0
+        this.onStart()
         this.doFrame()
     }
 
@@ -84,6 +87,9 @@ export class ValueAnimator {
             }
         }
         this.onUpdate(this.animatedValue)
+        if (this.mRunning === false) {
+            this.onEnd()
+        }
     }
 
 }
