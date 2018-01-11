@@ -1,0 +1,15 @@
+<script src="../dist/value-animator.min.js"></script>
+<script>
+    var animator = new ValueAnimator()
+    animator.startValue = 0
+    animator.endValue = 60
+    animator.duration = 4000
+    // animator.loops = 10
+    animator.onUpdate = function(value) {
+        console.log(Math.floor(value).toFixed(0)); // get value here
+    }
+    animator.start()
+    // animator.start(30) // start from 30 value
+    // animator.reverse()  // start with reversing value
+    // animator.stop()  // stop animation
+</script>

@@ -1,0 +1,17 @@
+{
+  "name": "value-animator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/value-animator.min.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.4.1",
+    "typescript": "^2.6.2",
+    "uglifyjs": "^2.4.11",
+    "webpack": "^3.10.0"
+  }
+}
