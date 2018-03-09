@@ -11,7 +11,7 @@ export class ValueAnimator {
         if (typeof requestAnimationFrame === "undefined") {
             return setTimeout(callback, 16)
         }
-        return requestAnimationFrame(callback)
+        return window.requestAnimationFrame(callback)
     }
 
     public startValue: number = 0
@@ -37,7 +37,7 @@ export class ValueAnimator {
     }
 
     public get animatedValue(): number {
-        return (this.endValue - this.startValue) * this.mCurrentFrication
+        return ((this.endValue - this.startValue) * this.mCurrentFrication) + this.startValue
     }
 
     private mRunning = false
