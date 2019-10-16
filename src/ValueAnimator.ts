@@ -14,6 +14,7 @@ export class ValueAnimator {
         return window.requestAnimationFrame(callback)
     }
 
+    public requestAnimationFrame: any
     public startValue: number = 0
     public endValue: number = 0
     public duration: number = 0
@@ -70,7 +71,12 @@ export class ValueAnimator {
         if (this.mRunning) {
             this.doDeltaTime(ValueAnimator.currentTimeMillsecond() - this.mStartTime)
             if (this.mRunning) {
-                ValueAnimator.requestAnimationFrame(this.doFrame.bind(this))
+                if (requestAnimationFrame !== undefined) {
+                    requestAnimationFrame(this.doFrame.bind(this))
+                }
+                else {
+                    ValueAnimator.requestAnimationFrame(this.doFrame.bind(this))
+                }
             }
         }
     }
