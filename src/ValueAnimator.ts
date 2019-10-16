@@ -8,7 +8,7 @@ export class ValueAnimator {
     }
 
     static requestAnimationFrame: (callback: () => void) => any = (callback) => {
-        if (typeof requestAnimationFrame === "undefined") {
+        if (typeof window === "undefined" || typeof requestAnimationFrame === "undefined") {
             return setTimeout(callback, 16)
         }
         return window.requestAnimationFrame(callback)
