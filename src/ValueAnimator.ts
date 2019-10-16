@@ -71,8 +71,8 @@ export class ValueAnimator {
         if (this.mRunning) {
             this.doDeltaTime(ValueAnimator.currentTimeMillsecond() - this.mStartTime)
             if (this.mRunning) {
-                if (requestAnimationFrame !== undefined) {
-                    requestAnimationFrame(this.doFrame.bind(this))
+                if (this.requestAnimationFrame !== undefined) {
+                    this.requestAnimationFrame(this.doFrame.bind(this))
                 }
                 else {
                     ValueAnimator.requestAnimationFrame(this.doFrame.bind(this))
